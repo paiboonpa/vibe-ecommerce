@@ -9,11 +9,18 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProductById(params.id)
+  try {
+    const product = await getProductById(params.id)
 
-  if (!product) {
+    if (!product) {
+      notFound()
+    }
+
+    return <ProductDetailClient product={product} />
+  } catch (error) {
+    // If getProductById throws (e.g., database error), also call notFound.
+    // Optional: log the error if the environment supports server-side logging.
+    // console.error("Failed to fetch product:", error);
     notFound()
   }
-
-  return <ProductDetailClient product={product} />
 }
