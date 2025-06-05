@@ -62,7 +62,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <div>
                   <label className="text-sm font-medium">จำนวน</label>
                   <div className="flex items-center gap-3 mt-2">
-                    <Button variant="outline" size="icon" onClick={decrementQuantity} disabled={quantity <= 1}>
+                    <Button variant="outline" size="icon" onClick={decrementQuantity} disabled={quantity <= 1} aria-label="decrement quantity">
                       <Minus className="h-4 w-4" />
                     </Button>
                     <span className="text-lg font-medium w-8 text-center">{quantity}</span>
@@ -71,6 +71,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                       size="icon"
                       onClick={incrementQuantity}
                       disabled={quantity >= product.stock}
+                      aria-label="increment quantity"
                     >
                       <Plus className="h-4 w-4" />
                     </Button>

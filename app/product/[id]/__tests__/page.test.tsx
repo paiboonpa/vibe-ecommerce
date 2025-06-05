@@ -50,7 +50,7 @@ describe('ProductPage', () => {
     render(PageComponent);
 
     await waitFor(() => {
-      expect(ProductDetailClient).toHaveBeenCalledWith({ product: mockProduct }, {});
+      expect(ProductDetailClient).toHaveBeenCalledWith({ product: mockProduct });
     });
 
     const productDetailClient = screen.getByTestId('product-detail-client');
